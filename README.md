@@ -1,2 +1,2 @@
-# Games
-The Tic-tac-toe and Flappy Bird games I made during Grade 11 and 12 respectively. Both games have a GUI implemented from Java Swing.
+# Java_GUI_Apps
+GUI apps and games that I made during Grade 11 and 12. All GUIs were implemented using Java Swing.
