@@ -57,7 +57,7 @@ public class SnackBar extends JFrame implements ActionListener {
       this.machine1.reload();
       this.machine2.reload();
       this.machine3.reload();
-      JOptionPane.showMessageDialog((Component)null, "Machines reloaded", "Service", 1);
+      JOptionPane.showMessageDialog((Component)null, "Machines restocked", "Service", 1);
     }
 
     else {JOptionPane.showMessageDialog((Component)null, "Login failed", "Service", 0);}
