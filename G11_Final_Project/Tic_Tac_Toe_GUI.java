@@ -17,7 +17,6 @@ package G11_Final_Project;
 // Imports:
 import java.awt.*;
 import javax.swing.*;
-import java.io.*;
 
 public class Tic_Tac_Toe_GUI extends JFrame{
 
@@ -71,24 +70,24 @@ public class Tic_Tac_Toe_GUI extends JFrame{
         JMenuItem quitGame = new JMenuItem("Quit Game");
         quitGame.addActionListener(e -> System.exit(0)); // IntelliJ suggested this notation.
 
-        // Initialize "Save Game" Button:
-        JMenuItem saveGame = new JMenuItem("Save Game");
-        saveGame.addActionListener(e -> {
-            try {saveGame();}
-            catch (IOException ioException) {ioException.printStackTrace();}
-        }); // IntelliJ suggested this notation.
+//        // Initialize "Save Game" Button:
+//        JMenuItem saveGame = new JMenuItem("Save Game");
+//        saveGame.addActionListener(e -> {
+//            try {saveGame();}
+//            catch (IOException ioException) {ioException.printStackTrace();}
+//        }); // IntelliJ suggested this notation.
 
-        // Initialize "Load Game" Button:
-        JMenuItem loadGame = new JMenuItem("Load Game");
-        loadGame.addActionListener(e -> {
-            try {loadGame();}
-            catch (IOException ioException) {ioException.printStackTrace();}
-        }); // IntelliJ suggested this notation.
+//        // Initialize "Load Game" Button:
+//        JMenuItem loadGame = new JMenuItem("Load Game");
+//        loadGame.addActionListener(e -> {
+//            try {loadGame();}
+//            catch (IOException ioException) {ioException.printStackTrace();}
+//        }); // IntelliJ suggested this notation.
 
         // Adding JMenuItems into the JMenu:
         menu.add(newGame);
-        menu.add(saveGame);
-        menu.add(loadGame);
+//        menu.add(saveGame);
+//        menu.add(loadGame);
         menu.add(quitGame);
         menuBar.add(menu);
         setJMenuBar(menuBar);
@@ -98,64 +97,64 @@ public class Tic_Tac_Toe_GUI extends JFrame{
      * Pre-condition: Nothing.
      * Post-condition: Should save the current state of the game, which includes the current turn, and the previous moves.
      */
-    private void saveGame() throws IOException {
-        // Writing to a text file:
-        try {
-            FileWriter writer = new FileWriter("Tic Tac Toe Game Save.txt");
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
-
-            // Writing the current turn:
-            bufferedWriter.write(currentPlayer);
-            bufferedWriter.newLine();
-
-            // Writing the values for the board array:
-            for (byte x = 0; x < 3; x++) {
-                for (byte y = 0; y < 3; y++) {
-                    bufferedWriter.write(board[x][y].getText());
-                    bufferedWriter.newLine();
-                }
-            }
-
-            writer.close();
-            bufferedWriter.close();
-        }
-        catch (IOException e) {e.printStackTrace();} // IntelliJ suggested this notation.
-    }
+//    private void saveGame() throws IOException {
+//        // Writing to a text file:
+//        try {
+//            FileWriter writer = new FileWriter("Tic Tac Toe Game Save.txt");
+//            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+//
+//            // Writing the current turn:
+//            bufferedWriter.write(currentPlayer);
+//            bufferedWriter.newLine();
+//
+//            // Writing the values for the board array:
+//            for (byte x = 0; x < 3; x++) {
+//                for (byte y = 0; y < 3; y++) {
+//                    bufferedWriter.write(board[x][y].getText());
+//                    bufferedWriter.newLine();
+//                }
+//            }
+//
+//            writer.close();
+//            bufferedWriter.close();
+//        }
+//        catch (IOException e) {e.printStackTrace();} // IntelliJ suggested this notation.
+//    }
 
     /**
      * Pre-condition: Requires a text file with the game save.
      * Post-condition: Should load a previous game state, which includes the current turn, and the previous moves.
      */
-    private void loadGame() throws IOException {
-        // Reading a text file:
-        try {
-            FileReader reader = new FileReader("Tic Tac Toe Game Save.txt");
-            BufferedReader bufferedReader = new BufferedReader(reader);
-
-            // Load the current turn:
-            currentPlayer = bufferedReader.readLine();
-
-            // Load the text for the previous moves:
-            for (byte x = 0; x < 3; x++) {
-                for (byte y = 0; y < 3; y++) {
-                    // Load the previous moves:
-                    board[x][y].setText(bufferedReader.readLine());
-                    board[x][y].setFont(new Font(Font.SANS_SERIF, Font.BOLD, 100)); // Set the font type to SANS_SERIF, bold, and size 100.
-
-                    // Set the font colour based on the player:
-                    if (board[x][y].getText().equals("X")) {board[x][y].setForeground(Color.red);}
-                    else {board[x][y].setForeground(Color.blue);}
-                }
-            }
-
-            reader.close();
-            bufferedReader.close();
-        }
-        catch (IOException e) {e.printStackTrace();}
-
-        // Display current turn:
-        JOptionPane.showMessageDialog(null, "It is player " + currentPlayer + "'s turn.");
-    }
+//    private void loadGame() throws IOException {
+//        // Reading a text file:
+//        try {
+//            FileReader reader = new FileReader("Tic Tac Toe Game Save.txt");
+//            BufferedReader bufferedReader = new BufferedReader(reader);
+//
+//            // Load the current turn:
+//            currentPlayer = bufferedReader.readLine();
+//
+//            // Load the text for the previous moves:
+//            for (byte x = 0; x < 3; x++) {
+//                for (byte y = 0; y < 3; y++) {
+//                    // Load the previous moves:
+//                    board[x][y].setText(bufferedReader.readLine());
+//                    board[x][y].setFont(new Font(Font.SANS_SERIF, Font.BOLD, 100)); // Set the font type to SANS_SERIF, bold, and size 100.
+//
+//                    // Set the font colour based on the player:
+//                    if (board[x][y].getText().equals("X")) {board[x][y].setForeground(Color.red);}
+//                    else {board[x][y].setForeground(Color.blue);}
+//                }
+//            }
+//
+//            reader.close();
+//            bufferedReader.close();
+//        }
+//        catch (IOException e) {e.printStackTrace();}
+//
+//        // Display current turn:
+//        JOptionPane.showMessageDialog(null, "It is player " + currentPlayer + "'s turn.");
+//    }
 
     /**
      * Pre-condition: Requires the board to be initialized.
@@ -214,6 +213,7 @@ public class Tic_Tac_Toe_GUI extends JFrame{
     private void togglePlayer() {
         // Based on the current player, toggle it:
         if (currentPlayer.equals("X")) {currentPlayer = "O";}
+
         else {currentPlayer = "X";}
     }
 
