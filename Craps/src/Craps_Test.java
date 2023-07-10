@@ -16,7 +16,7 @@ public class Craps_Test extends JFrame
 
   // Constructor(s):
   public Craps_Test() {
-    super("Craps: Test 1");
+    super("Craps: Test");
 
     Container c = getContentPane();
     c.setLayout(new FlowLayout());

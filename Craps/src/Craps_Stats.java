@@ -15,7 +15,7 @@ public class Craps_Stats extends JFrame
 
   // Constructor(s):
   public Craps_Stats() {
-    super("Craps test");
+    super("Craps: Stats");
 
     Container c = getContentPane();
     c.setLayout(new FlowLayout());
